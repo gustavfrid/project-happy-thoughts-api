@@ -24,6 +24,9 @@ app.use(cors())
 app.use(express.json())
 
 // Start defining your routes here
+app.get('/', (req, res) => {
+  res.send('Welcome to happy thoughts api')
+})
 app.get('/thoughts', async (req, res) => {
   try {
     const thoughts = await Thought.find().sort({ createdAt: 'desc' }).limit(20)
